@@ -1,0 +1,7 @@
+[0m[38;5;245mcpu: AMD Ryzen 9 3900X 12-Core Processor[0m
+[0m[38;5;245mruntime: deno 1.34.3 (x86_64-pc-windows-msvc)[0m
+
+[0m[38;5;245mfile:///C:/Users/Raiden/Desktop/gg/knap.bench.ts[0m
+benchmark       time (avg)             (min … max)       p75       p99      p995
+-------------------------------------------------- -----------------------------
+bench knap        [0m[33m212 ms[0m/iter ([0m[36m207.04 ms[0m … [0m[35m218.84 ms[0m)  [0m[35m213.4 ms[0m [0m[35m218.84 ms[0m [0m[35m218.84 ms[0m
