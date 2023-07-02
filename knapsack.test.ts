@@ -7,19 +7,25 @@ const items = [{ w: 2, v: 3 }, { w: 3, v: 4 }, { w: 4, v: 5 }, {
 }] as const;
 const capacity = 5;
 Deno.test("knapsack full", () => {
-  assertEquals(knap(items, capacity), 7);
+  assertEquals(knap(items.map((x) => x.w), items.map((x) => x.v), capacity), 7);
 });
 Deno.test("knapsack simple", () => {
-  assertEquals(knap([items[0]], capacity), 3);
+  assertEquals(knap([items[0].w], [items[0].v], capacity), 3);
 });
 Deno.test("knapsack 2", () => {
-  assertEquals(knap([items[0], items[1]], capacity), 7);
+  assertEquals(
+    knap([items[0].w, items[1].w], [items[0].v, items[1].v], capacity),
+    7,
+  );
 });
 Deno.test("knapsack 3", () => {
-  assertEquals(knap([items[0], items[2]], capacity), 5);
+  assertEquals(
+    knap([items[0].w, items[2].w], [items[0].v, items[2].v], capacity),
+    5,
+  );
 });
 
-const weights = [
+export const weights = [
   10,
   14,
   6,
@@ -51,7 +57,7 @@ const weights = [
   6,
   12,
 ];
-const values = [
+export const values = [
   8,
   12,
   4,
@@ -87,5 +93,5 @@ export const otherItems = weights.map((x, i) => ({ w: x, v: values[i] }));
 export const otherCapacity = 70;
 
 Deno.test("knapsack 10", () => {
-  assertEquals(knap(otherItems, otherCapacity), 59);
+  assertEquals(knap(weights, values, otherCapacity), 59);
 });
