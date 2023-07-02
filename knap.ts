@@ -3,8 +3,11 @@ export function knap(
   values: ReadonlyArray<number>,
   capacity: number,
 ): number {
+  hm = {};
   return _knap(weights, values, capacity, 0, weights.length);
 }
+
+let hm: Record<string, number> = {};
 
 function _knap(
   weights: ReadonlyArray<number>,
@@ -13,7 +16,12 @@ function _knap(
   from: number,
   len: number,
 ): number {
-  return __knap(weights, values, capacity, from, len);
+  const hash = `${capacity},${from}`;
+  const found = hm[hash];
+  if (found !== undefined) {
+    return found;
+  }
+  return hm[hash] = __knap(weights, values, capacity, from, len);
 }
 
 function __knap(
