@@ -13,6 +13,16 @@ function _knap(
   from: number,
   len: number,
 ): number {
+  return __knap(weights, values, capacity, from, len);
+}
+
+function __knap(
+  weights: ReadonlyArray<number>,
+  values: ReadonlyArray<number>,
+  capacity: number,
+  from: number,
+  len: number,
+): number {
   if (from + 1 === len) {
     return weights[from] <= capacity ? values[from] : 0;
   }
